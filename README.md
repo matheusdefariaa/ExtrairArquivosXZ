@@ -28,12 +28,13 @@
 	rzip -l arq.zip
 ```
 
+## Como usar:
 
 ### Para listar arquivos: 
 ```bash
         rzip -[l] <nome do arquivo>
 ```
-### Para descomprimir descomprimir: 
+### Para descomprimir arquivos: 
 ```bash
         rzip -[d] <nome do arquivo>
 ```
