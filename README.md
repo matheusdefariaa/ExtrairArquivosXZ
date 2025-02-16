@@ -4,7 +4,7 @@
 
 # Instalação
 
-### Para poder usar é necessário o uso do cargo ou rustc
+### Para poder usar é necessário o uso do cargo
 > Instalação do cargo em Linux e MacOS
 
 ```bash 
