@@ -6,7 +6,7 @@ pub mod rzip {
 
     // Função para listar arquivos dentro do arquivo zip
     pub fn listar_arquivos(nome: &std::fs::File) -> i32 {
-        let arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
+        let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
         println!("{}","-".repeat(17));
         println!("Lista de arquivos");
@@ -14,7 +14,13 @@ pub mod rzip {
         
         // Imprimi na tela todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
-            println!("{x}");
+            let mut nome_arqs = arq_zip.by_index(x).unwrap();
+            
+            // Exibir os nomes dos arquivos
+            match nome_arqs.enclosed_name() {
+                Some(nome) => println!("{}",nome.display()),
+                None => continue,
+            }
         }
         0
     }
