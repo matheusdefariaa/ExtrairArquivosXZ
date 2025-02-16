@@ -1,1 +1,1 @@
-# Programa para descomprimir arquivos xz
+# Programa para listar e descomprimir arquivos zip
