@@ -1,4 +1,5 @@
 use std::{env, fs::File, path::Path, process};
+mod rzip;
 
 fn main() {
     // Pegar a entrada do usuário
@@ -22,12 +23,12 @@ fn main() {
 
     // Chama a função para listar os arquivos 
     if opc == "-l" {
-        process::exit(listar_arquivos(&arq));
+        process::exit(rzip::RZIP::listar_arquivos(&arq));
     }
 
     // Chama a função para extair os arquivos 
     else if opc == "-d" {
-        extrair_arquivos();
+        process::exit(rzip::RZIP::extrair_arquivos());
     }
 
     else if opc == "-h" {
@@ -41,25 +42,6 @@ fn main() {
     }
 }
 
-
-// Função para extrair arquivos
-fn extrair_arquivos() -> i32 {
-    0
-}
-
-// Função para listar arquivos dentro do arquivo zip
-fn listar_arquivos(nome: &File) -> i32 {
-    let arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
-
-    println!("{}","-".repeat(17));
-    println!("Lista de arquivos");
-    println!("{}","-".repeat(17));
-    // Imprimi na tela todos os arquivos dentro do arquivo zip
-    for x in 0..arq_zip.len() {
-        println!("{x}");
-    }
-    0
-}
 
 // Função de ajuda
 fn help() -> i32 {
