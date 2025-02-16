@@ -2,6 +2,24 @@
 
 ### Programa feito em rust com a crate zip versão 2.2.2
 
+# Instalação
+
+### Para poder usar é necessário o uso do cargo ou rustc
+> Instalação do cargo em Linux e MacOS
+
+```bash 
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+```
+
+> Clonar repositório, compilar e executar
+```bash 
+    git clone git@github.com:matheusdefariaa/Rzip.git
+    cd Rzip/
+    cargo build --release
+    ./target/release/rzip
+```
+
 ### Tornar o software um programa padrão no Linux
 
 ```bash
@@ -11,16 +29,16 @@
 ```
 
 
-## Para listar arquivos: 
+### Para listar arquivos: 
 ```bash
         rzip -[l] <nome do arquivo>
 ```
-## Para descomprimir descomprimir: 
+### Para descomprimir descomprimir: 
 ```bash
         rzip -[d] <nome do arquivo>
 ```
 
-## Para obter ajuda: 
+### Para obter ajuda: 
 ```bash
         rzip -[h] <nome do arquivo>
 ```
