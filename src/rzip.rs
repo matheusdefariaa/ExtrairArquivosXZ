@@ -1,4 +1,4 @@
-pub mod RZIP {
+pub mod rzip {
     // Função para extrair arquivos
     pub fn extrair_arquivos() -> i32 {
         0
