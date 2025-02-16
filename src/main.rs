@@ -28,7 +28,7 @@ fn main() {
 
     // Chama a função para extair os arquivos 
     else if opc == "-d" {
-        process::exit(rzip::rzip::extrair_arquivos());
+        process::exit(rzip::rzip::extrair_arquivos(&arq));
     }
 
     else if opc == "-h" {
