@@ -2,6 +2,14 @@
 
 ### Programa feito em rust com a crate zip versão 2.2.2
 
+### Tornar o software um programa padrão no Linux
+
+```bash
+	sudo chmod +x run.sh
+	./run.sh
+	rzip -l arq.zip
+```
+
 
 ## Para listar arquivos: 
 ```bash
