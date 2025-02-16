@@ -23,4 +23,4 @@
     println!("Data de lançamento: 15/02/2025");
 ```
 
->**Arquivo de teste:** arq.zip contém dois arquivos de texto vazios chamados de 1 e 2
+>**Arquivo de teste:** arq.zip contém dois arquivos de texto vazios chamados de teste_1 e teste_2
