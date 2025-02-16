@@ -23,12 +23,12 @@ fn main() {
 
     // Chama a função para listar os arquivos 
     if opc == "-l" {
-        process::exit(rzip::RZIP::listar_arquivos(&arq));
+        process::exit(rzip::rzip::listar_arquivos(&arq));
     }
 
     // Chama a função para extair os arquivos 
     else if opc == "-d" {
-        process::exit(rzip::RZIP::extrair_arquivos());
+        process::exit(rzip::rzip::extrair_arquivos());
     }
 
     else if opc == "-h" {

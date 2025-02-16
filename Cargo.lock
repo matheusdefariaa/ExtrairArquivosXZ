@@ -415,6 +415,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "rzip"
+version = "0.1.0"
+dependencies = [
+ "zip",
+]
+
+[[package]]
 name = "serde"
 version = "1.0.217"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -576,13 +583,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "zip"
-version = "0.1.0"
-dependencies = [
- "zip 2.2.2",
 ]
 
 [[package]]
