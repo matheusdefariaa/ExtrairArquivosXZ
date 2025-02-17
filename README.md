@@ -42,6 +42,11 @@
         rzip -[d] <nome do arquivo>
 ```
 
+### Para usar a interface no terminal: 
+```bash
+        rzip <nome do arquivo>
+```
+
 ### Para obter ajuda: 
 ```bash
         rzip -[h] <nome do arquivo>
