@@ -65,6 +65,7 @@ pub mod interface {
 
         i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
                     .title("Rzip - Extrair arquivos")
-                    .button("Voltar", menu_inicial));
+                    .button("Voltar", menu_inicial)
+                    .button("Sair", |i| i.quit()));
     }
 }

@@ -4,6 +4,12 @@ pub mod rzip {
     pub fn extrair_arquivos(nome: &std::fs::File) -> i32 {
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
+
+        println!("{}","-".repeat(63));
+        println!("\t\t📂 Extrair arquivos arquivos 📂");
+        println!("{}","-".repeat(63));
+        
+
         // Percorre todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
             let mut nome_arqs = arq_zip.by_index(x).unwrap();
@@ -25,7 +31,14 @@ pub mod rzip {
                 if let Some(c) = caminho_arq.parent() {
                     if !c.exists() {
                         std::fs::create_dir_all(&c).unwrap();
-                        println!("📃 Arquivo extraido: ↪️ {}",caminho_arq.display());
+                        if (*nome_arqs.name()).contains("/") {
+
+                            println!("📁 / 📃 Pasta e arquivo extraido: ↪️ {}",caminho_arq.display());
+                        }
+                        else {
+                            println!("📃 Arquivo extraido: ↪️ {}",caminho_arq.display());
+                        }
+                        
                     }
                 }
 
