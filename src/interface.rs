@@ -20,7 +20,7 @@ pub mod interface {
         i.add_layer(Dialog::text("O que deseja fazer ?")
             .title("Rzip")
             .button("Listar",listar)
-            //.button("Extrair",extrair)
+            .button("Extrair",extrair)
             .button("Sair",|i| i.quit()));
     }
 
@@ -48,5 +48,9 @@ pub mod interface {
                     .title("Rzip - Listar")
                     .button("Voltar",menu_inicial));
     
+    }
+
+    pub fn extrair(_i: &mut Cursive) {
+        todo!();
     }
 }
