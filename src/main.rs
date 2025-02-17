@@ -11,6 +11,7 @@ fn main() {
         let nome_arquivo = &opc[1];
         if nome_arquivo.contains(".zip") || nome_arquivo.contains(".7z") {
             interface::interface::interface_main();
+            process::exit(0);
         }
 
     }
