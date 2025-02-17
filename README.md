@@ -64,3 +64,4 @@
 
 <img src="assets/img/menu.png">
 <img src="assets/img/listar.png">
+<img src="assets/img/extrair.png">
