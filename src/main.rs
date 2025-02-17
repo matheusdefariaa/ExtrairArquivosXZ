@@ -62,7 +62,7 @@ fn help() -> i32 {
     println!("\tPrograma para listar e descomprimir arquivos zip");
     println!("\t\tHELP [-h]");
     println!("\t\tListar arquivos [-l]");
-    println!("\t\tDescomprimir arquivos [-d]");
+    println!("\t\tExtrair arquivos [-d]");
     println!("\t\tAbrir interface no terminal: rzip <nome do arquivo>");
     println!("{}","-".repeat(64));
     0

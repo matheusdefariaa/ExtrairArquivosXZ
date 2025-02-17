@@ -1,4 +1,4 @@
-# Rzip - Listar e descomprimir arquivos zip
+# Rzip - Listar e Extrair arquivos zip
 
 ### Programa feito em rust com a crate zip versão 2.2.2
 
@@ -37,7 +37,7 @@
 ```bash
         rzip -[l] <nome do arquivo>
 ```
-### Para descomprimir arquivos: 
+### Para Extrair arquivos: 
 ```bash
         rzip -[d] <nome do arquivo>
 ```
