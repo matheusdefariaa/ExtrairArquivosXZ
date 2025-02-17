@@ -4,7 +4,7 @@ pub mod rzip {
     pub fn extrair_arquivos(nome: &std::fs::File) -> i32 {
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
-        // Imprimi na tela todos os arquivos dentro do arquivo zip
+        // Percorre todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
             let mut nome_arqs = arq_zip.by_index(x).unwrap();
 
@@ -26,7 +26,6 @@ pub mod rzip {
                     if !c.exists() {
                         std::fs::create_dir_all(&c).unwrap();
                         println!("Arquivo extraido: {}",caminho_arq.display());
-
                     }
                 }
 
