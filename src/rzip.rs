@@ -22,7 +22,7 @@ pub mod rzip {
 
             // Verifica e cria diretórios
             if (*nome_arqs.name()).ends_with("/") {
-                println!("📁 Diretório extraido: ↪️ {}",caminho_arq.display());
+                println!("📁 Diretório extraído: ↪️ {}",caminho_arq.display());
                 std::fs::create_dir_all(&caminho_arq).unwrap();
             }
 
@@ -33,10 +33,10 @@ pub mod rzip {
                         std::fs::create_dir_all(&c).unwrap();
                         if (*nome_arqs.name()).contains("/") {
 
-                            println!("📁 / 📃 Pasta e arquivo extraido: ↪️ {}",caminho_arq.display());
+                            println!("📁 / 📃 Pasta e arquivo extraídos: ↪️ {}",caminho_arq.display());
                         }
                         else {
-                            println!("📃 Arquivo extraido: ↪️ {}",caminho_arq.display());
+                            println!("📃 Arquivo extraído: ↪️ {}",caminho_arq.display());
                         }
                         
                     }
