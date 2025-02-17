@@ -1,6 +1,7 @@
 pub mod interface {
 
     use cursive::views::Dialog;
+    use cursive::views::TextView;
     use cursive::Cursive;
     use cursive::traits::*;
     use cursive::views::SelectView;
@@ -50,7 +51,20 @@ pub mod interface {
     
     }
 
-    pub fn extrair(_i: &mut Cursive) {
-        todo!();
+    pub fn extrair(i: &mut Cursive) {
+        use std::{fs::File, path::Path,env};
+
+        let opc: Vec<String> = env::args().collect();
+        let nome_arquivo = &opc[1];
+        let path_arq = Path::new(&nome_arquivo);
+        let arq = File::open(&path_arq).expect("Arquivo não encontrado");
+
+        i.pop_layer();
+
+        rzip::rzip::extrair_arquivos_interface(&arq);
+        
+        i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
+                    .title("Extrair arquivos")
+                    .button("Voltar", menu_inicial));
     }
 }
