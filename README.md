@@ -54,7 +54,7 @@
 
 ```bash
     println!("Autor: Matheus de Faria");
-    println!("Versão: 1.0");
+    println!("Versão: 1.1");
     println!("Data de lançamento: 15/02/2025");
 ```
 
