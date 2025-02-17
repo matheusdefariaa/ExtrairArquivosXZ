@@ -16,7 +16,7 @@ pub mod rzip {
 
             // Verifica e cria diretórios
             if (*nome_arqs.name()).ends_with("/") {
-                println!("Diretório extraido: {}",caminho_arq.display());
+                println!("📁 Diretório extraido: ↪️ {}",caminho_arq.display());
                 std::fs::create_dir_all(&caminho_arq).unwrap();
             }
 
@@ -25,7 +25,7 @@ pub mod rzip {
                 if let Some(c) = caminho_arq.parent() {
                     if !c.exists() {
                         std::fs::create_dir_all(&c).unwrap();
-                        println!("Arquivo extraido: {}",caminho_arq.display());
+                        println!("📃 Arquivo extraido: ↪️ {}",caminho_arq.display());
                     }
                 }
 
@@ -80,9 +80,9 @@ pub mod rzip {
 
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
-        println!("{}","-".repeat(17));
-        println!("Lista de arquivos");
-        println!("{}","-".repeat(17));
+        println!("{}","-".repeat(54));
+        println!("\t\t📋 Lista de arquivos 📋");
+        println!("{}","-".repeat(54));
         
         // Imprimi na tela todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
@@ -91,7 +91,11 @@ pub mod rzip {
             // Exibir os nomes dos arquivos
             match nome_arqs.enclosed_name() {
                 Some(nome) => {
-                    println!("{}",nome.display());
+                    if (*nome_arqs.name()).contains("/") {
+                        println!("📁 ↪️ {}",nome.display());
+                        continue;
+                    }
+                    println!("📃 ↪️ {}",nome.display());
                 },
                 None => continue,
             }
