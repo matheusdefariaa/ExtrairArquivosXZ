@@ -46,7 +46,7 @@ pub mod interface {
         }
     
         i.add_layer(Dialog::around(select.scrollable().fixed_size((20, 10))).title("Where are you from?")
-                    .title("Rzip - Listar")
+                    .title("Rzip - Listar arquivos")
                     .button("Voltar",menu_inicial));
     
     }
@@ -62,9 +62,9 @@ pub mod interface {
         i.pop_layer();
 
         rzip::rzip::extrair_arquivos_interface(&arq);
-        
+
         i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
-                    .title("Extrair arquivos")
+                    .title("Rzip - Extrair arquivos")
                     .button("Voltar", menu_inicial));
     }
 }
