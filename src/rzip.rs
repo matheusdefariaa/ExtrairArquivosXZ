@@ -6,7 +6,7 @@ pub mod rzip {
 
 
         println!("{}","-".repeat(63));
-        println!("\t\t📂 Extrair arquivos arquivos 📂");
+        println!("\t\t📂 Extrair arquivos 📂");
         println!("{}","-".repeat(63));
         
 
