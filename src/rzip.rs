@@ -16,7 +16,7 @@ pub mod rzip {
 
             // Verifica e cria diretórios
             if (*nome_arqs.name()).ends_with("/") {
-                println!("Arquivos extraidos para {}",caminho_arq.display());
+                println!("Diretório extraido: {}",caminho_arq.display());
                 std::fs::create_dir_all(&caminho_arq).unwrap();
             }
 
@@ -25,6 +25,8 @@ pub mod rzip {
                 if let Some(c) = caminho_arq.parent() {
                     if !c.exists() {
                         std::fs::create_dir_all(&c).unwrap();
+                        println!("Arquivo extraido: {}",caminho_arq.display());
+
                     }
                 }
 
@@ -38,6 +40,7 @@ pub mod rzip {
         0
     }
 
+    // Função para extrair arquivos para interface
     pub fn extrair_arquivos_interface(nome: &std::fs::File) {
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
@@ -53,7 +56,6 @@ pub mod rzip {
 
             // Verifica e cria diretórios
             if (*nome_arqs.name()).ends_with("/") {
-                println!("Arquivos extraidos para {}",caminho_arq.display());
                 std::fs::create_dir_all(&caminho_arq).unwrap();
             }
 
@@ -73,8 +75,6 @@ pub mod rzip {
             }
         }
     }
-
-
 
     // Função para listar arquivos dentro do arquivo zip
     pub fn listar_arquivos(nome: &std::fs::File) -> i32 {
