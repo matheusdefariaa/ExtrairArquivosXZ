@@ -1,9 +1,18 @@
 use std::{env, fs::File, path::Path, process};
 mod rzip;
+mod interface;
 
 fn main() {
     // Pegar a entrada do usuário
     let opc: Vec<String> = env::args().collect();
+
+    if opc.len() == 2 {
+        let nome_arquivo = &opc[1];
+        if nome_arquivo.contains(".zip") {
+            interface::interface::interface_main();
+        }
+
+    }
 
     // Verifica se encontrou a flag e o nome do arquivo zip
     if opc.len() != 3 {
