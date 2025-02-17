@@ -9,7 +9,7 @@ fn main() {
 
     if opc.len() == 2 {
         let nome_arquivo = &opc[1];
-        if nome_arquivo.contains(".zip") {
+        if nome_arquivo.contains(".zip") || nome_arquivo.contains(".7z") {
             interface::interface::interface_main();
         }
 
@@ -57,12 +57,13 @@ fn main() {
 fn help() -> i32 {
     println!("{}","-".repeat(64));
     println!("\tAutor: Matheus de Faria");
-    println!("\tVersão: 1.0");
+    println!("\tVersão: 1.1");
     println!("\tData de lançamento: 15/02/2025\n");
     println!("\tPrograma para listar e descomprimir arquivos zip");
     println!("\t\tHELP [-h]");
     println!("\t\tListar arquivos [-l]");
     println!("\t\tDescomprimir arquivos [-d]");
+    println!("\t\tAbrir interface no terminal: rzip <nome do arquivo>");
     println!("{}","-".repeat(64));
     0
 }
