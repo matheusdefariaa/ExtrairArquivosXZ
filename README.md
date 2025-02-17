@@ -2,6 +2,9 @@
 
 ### Programa feito em rust com a crate zip versão 2.2.2
 
+> ⚠️ :**warning**: **Arquivos grandes**: Esse programa apresenta instabilidade com arquivos grandes, podendo causar travamentos.
+
+
 # Instalação
 
 ### Para poder usar é necessário o uso do cargo
