@@ -3,9 +3,23 @@ pub mod rzip {
     // Função para extrair arquivos
     pub fn extrair_arquivos(nome: &std::fs::File) -> i32 {
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
-
+        let mut len = numero_de_arquivos(nome);
+        let mut opc = String::new();
 
         println!("\n\t\t📂 Extrair arquivos 📂\n");
+        
+        println!("\nNúmero de arquivos que serão extraídos: {len}");
+        println!("Deseja continuar(S/N)?\n");
+        std::io::stdin()
+            .read_line(&mut opc)
+            .expect("Erro ao ler entrada");
+
+        let opc = opc.trim().to_lowercase();
+
+        if opc != "s" {
+            println!("Operação cancelada com sucesso");
+            return 0
+        }
         
 
         // Percorre todos os arquivos dentro do arquivo zip
@@ -35,18 +49,19 @@ pub mod rzip {
                         }
                         else {
                             println!("📃 Arquivo extraído: ↪️ {}",caminho_arq.display());
-                        }
-                        
+                        }  
                     }
                 }
 
-                // Arquivo de saida
-                let mut arq_saida = std::fs::File::create(&caminho_arq).unwrap();
 
-                // Copia o conteúdo de nome_arqs para arq_saida
-                std::io::copy(&mut nome_arqs, &mut arq_saida).unwrap();
+            // Arquivo de saida
+            let mut arq_saida = std::fs::File::create(&caminho_arq).unwrap();
+
+            // Copia o conteúdo de nome_arqs para arq_saida
+            std::io::copy(&mut nome_arqs, &mut arq_saida).unwrap();
             }
         }
+        println!("\nNúmero de arquivos extraídos: {len}");
         0
     }
 
@@ -128,5 +143,16 @@ pub mod rzip {
             }
         }
         nomes_arquivos
+    }
+
+    pub fn numero_de_arquivos(nome: &std::fs::File) -> usize {
+        let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
+        let mut len: usize = 0;
+
+        for x in 0..arq_zip.len() {
+            len += 1
+        }
+
+        len
     }
 }

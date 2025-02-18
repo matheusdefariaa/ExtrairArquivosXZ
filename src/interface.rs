@@ -58,14 +58,26 @@ pub mod interface {
         let nome_arquivo = &opc[1];
         let path_arq = Path::new(&nome_arquivo);
         let arq = File::open(&path_arq).expect("Arquivo não encontrado");
+        let len = rzip::rzip::numero_de_arquivos(&arq);
 
         i.pop_layer();
 
-        rzip::rzip::extrair_arquivos_interface(&arq);
-
-        i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
+        i.add_layer(Dialog::around(TextView::new(format!("Tem certeza que deseja extrair?\nSerão extraidos {len} arquivos")))
                     .title("Rzip - Extrair arquivos")
-                    .button("Voltar", menu_inicial)
-                    .button("Sair", |i| i.quit()));
+                    .button("Sim", extrair_arq)
+                    .button("Não", menu_inicial));
+
+        fn extrair_arq(i: &mut Cursive) {
+            let opc: Vec<String> = env::args().collect();
+            let nome_arquivo = &opc[1];
+            let path_arq = Path::new(&nome_arquivo);
+            let arq = File::open(&path_arq).expect("Arquivo não encontrado");
+            rzip::rzip::extrair_arquivos_interface(&arq);
+
+            i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
+                        .title("Rzip - Extrair arquivos")
+                        .button("Voltar", menu_inicial)
+                        .button("Sair", |i| i.quit()));
+        }
     }
 }
