@@ -5,9 +5,7 @@ pub mod rzip {
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
 
-        println!("{}","-".repeat(63));
-        println!("\t\t📂 Extrair arquivos 📂");
-        println!("{}","-".repeat(63));
+        println!("\n\t\t📂 Extrair arquivos 📂\n");
         
 
         // Percorre todos os arquivos dentro do arquivo zip
@@ -93,9 +91,7 @@ pub mod rzip {
 
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
-        println!("{}","-".repeat(54));
-        println!("\t\t📋 Lista de arquivos 📋");
-        println!("{}","-".repeat(54));
+        println!("\n\t\t📋 Lista de arquivos 📋\n");
         
         // Imprimi na tela todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
