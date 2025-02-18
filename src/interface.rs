@@ -62,7 +62,7 @@ pub mod interface {
 
         i.pop_layer();
 
-        i.add_layer(Dialog::around(TextView::new(format!("Tem certeza que deseja extrair?\nSerão extraidos {len} arquivos")))
+        i.add_layer(Dialog::around(TextView::new(format!("Tem certeza que deseja extrair?\nSerão extraídos {len} arquivos")))
                     .title("Rzip - Extrair arquivos")
                     .button("Sim", extrair_arq)
                     .button("Não", menu_inicial));
@@ -73,6 +73,8 @@ pub mod interface {
             let path_arq = Path::new(&nome_arquivo);
             let arq = File::open(&path_arq).expect("Arquivo não encontrado");
             rzip::rzip::extrair_arquivos_interface(&arq);
+
+            i.pop_layer();
 
             i.add_layer(Dialog::around(TextView::new("Tarefa concluída com sucessso"))
                         .title("Rzip - Extrair arquivos")
