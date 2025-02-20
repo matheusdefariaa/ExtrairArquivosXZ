@@ -7,13 +7,16 @@ fn main() {
     // Pegar a entrada do usuário
     let opc: Vec<String> = env::args().collect();
 
+    if opc.len() == 1 {
+        process::exit(help());
+    }
+
     if opc.len() == 2 {
         let nome_arquivo = &opc[1];
         if nome_arquivo.contains(".zip") || nome_arquivo.contains(".7z") {
             interface::interface::interface_main();
             process::exit(0);
         }
-
     }
 
     // Verifica se encontrou a flag e o nome do arquivo zip
@@ -22,7 +25,6 @@ fn main() {
         if nome_arquivo == "-v" {
             process::exit(version());
         }
-
         process::exit(help());
     }
 

@@ -46,16 +46,13 @@ pub mod rzip {
                     if !c.exists() {
                         std::fs::create_dir_all(&c).unwrap();
                         if (*nome_arqs.name()).contains("/") {
-
-                            println!("📁 / 📃 Pasta e arquivo extraídos: ↪️ {}",caminho_arq.display());
-                            println!("{} {}","📁 / 📃 Pasta e arquivo extraídos: ↪",c_string.blue().bold().italic());
+                            println!("{} {}","📁 / 📃 Pasta e arquivo extraídos: ↪".green(),c_string.blue().bold().italic());
                         }
                         else {
                             println!("{} {} {} {}","📃".green(),"Arquivo extraído:".green(),"↪".green(),c_string.white());
                         }  
                     }
                 }
-
 
             // Arquivo de saida
             let mut arq_saida = std::fs::File::create(&caminho_arq).unwrap();
