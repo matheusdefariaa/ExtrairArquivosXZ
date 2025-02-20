@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 zip = "2.2.2"
 cursive = "0.21"
+colored = "3.0.0"
