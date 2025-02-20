@@ -18,6 +18,11 @@ fn main() {
 
     // Verifica se encontrou a flag e o nome do arquivo zip
     if opc.len() != 3 {
+        let nome_arquivo = &opc[1];
+        if nome_arquivo == "-v" {
+            process::exit(version());
+        }
+
         process::exit(help());
     }
 
@@ -46,6 +51,10 @@ fn main() {
         process::exit(help());
     }
 
+    else if opc == "-v" {
+        process::exit(version());
+    }
+
     else {
         println!("{}","-".repeat(64));
         println!("\tDigite a flag [-h] para ajuda");
@@ -53,18 +62,22 @@ fn main() {
     }
 }
 
-
 // Função de ajuda
 fn help() -> i32 {
-    println!("{}","-".repeat(64));
-    println!("\tAutor: Matheus de Faria");
-    println!("\tVersão: 1.1");
-    println!("\tData de lançamento: 15/02/2025\n");
-    println!("\tPrograma para listar e descomprimir arquivos zip");
-    println!("\t\tHELP [-h]");
-    println!("\t\tListar arquivos [-l]");
-    println!("\t\tExtrair arquivos [-d]");
-    println!("\t\tAbrir interface no terminal: rzip <nome do arquivo>");
-    println!("{}","-".repeat(64));
+    println!("Uso: rzip [OPÇÃO]... [ARQUIVO]...");
+    println!("Lista e extrai arquivos zip.");
+    println!("Abre a interface gráfica se não for usada nenhuma opção -dhlv.");
+    println!("  -d {} extrair arquivos", " ".repeat(10));
+    println!("  -h {} exibir esta ajuda e sai"," ".repeat(10));
+    println!("  -l {} listar arquivos"," ".repeat(10));
+    println!("  -v {} exibe a versão e sai", " ".repeat(10));
+    println!("Abrir interface no terminal: rzip <nome do arquivo>");
+    0
+}
+
+fn version() -> i32 {
+    println!("Versão: 1.2");
+    println!("Data de lançamento: 15/02/2025");
+    println!("Escrito por Matheus de Faria.");
     0
 }
