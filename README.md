@@ -52,10 +52,16 @@
         rzip -[h] <nome do arquivo>
 ```
 
+### Para exibir a versão: 
+```bash
+        rzip -[v] <nome do arquivo>
+```
+
 ```bash
     println!("Autor: Matheus de Faria");
-    println!("Versão: 1.1");
+    println!("Versão: 1.2");
     println!("Data de lançamento: 15/02/2025");
+    println!("Atualização: 20/02/2025");
 ```
 
 >**Arquivo de teste:** arq.zip contém dois arquivos de texto vazios chamados de teste_1 e teste_2
