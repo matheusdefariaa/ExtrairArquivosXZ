@@ -37,7 +37,7 @@
 ```bash
         rzip -[l] <nome do arquivo>
 ```
-### Para Extrair arquivos: 
+### Para extrair arquivos: 
 ```bash
         rzip -[d] <nome do arquivo>
 ```
