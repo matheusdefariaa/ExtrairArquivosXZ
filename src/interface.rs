@@ -45,7 +45,7 @@ pub mod interface {
             select.add_item(item, item.clone());
         }
     
-        i.add_layer(Dialog::around(select.scrollable().fixed_size((20, 10))).title("Where are you from?")
+        i.add_layer(Dialog::around(select.scrollable().fixed_size((20, 10)))
                     .title("Rzip - Listar arquivos")
                     .button("Voltar",menu_inicial));
     

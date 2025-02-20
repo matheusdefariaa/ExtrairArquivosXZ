@@ -2,14 +2,16 @@ pub mod rzip {
 
     // Função para extrair arquivos
     pub fn extrair_arquivos(nome: &std::fs::File) -> i32 {
+        use colored::Colorize;
+
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
         let len = numero_de_arquivos(nome);
         let mut opc = String::new();
 
-        println!("\n\t\t📂 Extrair arquivos 📂\n");
+        println!("{}\n","Extrair arquivos 📂".white().bold());
         
-        println!("\nNúmero de arquivos que serão extraídos: {len}");
-        println!("Deseja continuar(S/N)?\n");
+        println!("{} {} {}","Tem certeza que deseja extrair?\nSerão extraídos".green().bold(),len.to_string().green().bold(),"arquivos".green().bold());
+        println!("{}","Deseja continuar(S/N)?".white().bold());
         std::io::stdin()
             .read_line(&mut opc)
             .expect("Erro ao ler entrada");
@@ -17,10 +19,9 @@ pub mod rzip {
         let opc = opc.trim().to_lowercase();
 
         if opc != "s" {
-            println!("Operação cancelada com sucesso");
+            println!("{}","Operação cancelada com sucesso".red().bold());
             return 0
         }
-        
 
         // Percorre todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
@@ -32,9 +33,10 @@ pub mod rzip {
                 None => continue,
             };
 
+            let c_string = &caminho_arq.to_string_lossy();
             // Verifica e cria diretórios
             if (*nome_arqs.name()).ends_with("/") {
-                println!("📁 Diretório extraído: ↪️ {}",caminho_arq.display());
+                println!("{} {} {}","📁".green(),"↪".green(),c_string.blue().bold().italic());
                 std::fs::create_dir_all(&caminho_arq).unwrap();
             }
 
@@ -46,9 +48,10 @@ pub mod rzip {
                         if (*nome_arqs.name()).contains("/") {
 
                             println!("📁 / 📃 Pasta e arquivo extraídos: ↪️ {}",caminho_arq.display());
+                            println!("{} {}","📁 / 📃 Pasta e arquivo extraídos: ↪",c_string.blue().bold().italic());
                         }
                         else {
-                            println!("📃 Arquivo extraído: ↪️ {}",caminho_arq.display());
+                            println!("{} {} {} {}","📃".green(),"Arquivo extraído:".green(),"↪".green(),c_string.white());
                         }  
                     }
                 }
@@ -61,7 +64,7 @@ pub mod rzip {
             std::io::copy(&mut nome_arqs, &mut arq_saida).unwrap();
             }
         }
-        println!("\nNúmero de arquivos extraídos: {len}");
+        println!("\n{} {}","Número de arquivos extraídos:".white().bold(),len.to_string().blue().bold());
         0
     }
 
