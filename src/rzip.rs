@@ -107,7 +107,7 @@ pub mod rzip {
 
         let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
 
-        println!("{}\n","Lista de arquivos 📋".bold());
+        println!("{}\n","Lista de arquivos 📋".white().bold());
         
         // Imprimi na tela todos os arquivos dentro do arquivo zip
         for x in 0..arq_zip.len() {
@@ -118,10 +118,10 @@ pub mod rzip {
                 Some(nome) => {
                     let n_string = &nome.to_string_lossy();
                     if (*nome_arqs.name()).contains("/") {
-                        println!("📁 ↪️ {}",n_string.green().bold().italic());
+                        println!("{} {} {}","📁".green(),"↪".green(),n_string.blue().bold().italic());
                         continue;
                     }
-                    println!("📃 ↪️ {}",n_string.blue().bold());
+                    println!("{} {} {}","📃".green(),"↪".green(),n_string.white());
                 },
                 None => continue,
             }
@@ -149,10 +149,10 @@ pub mod rzip {
 
         // Função para pegar o número de arquivos dentro do arquivo zip
     pub fn numero_de_arquivos(nome: &std::fs::File) -> usize {
-        let mut arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
+        let arq_zip = zip::ZipArchive::new(nome).expect("Erro ao ler zip");
         let mut len: usize = 0;
 
-        for x in 0..arq_zip.len() {
+        for _x in 0..arq_zip.len() {
             len += 1
         }
 

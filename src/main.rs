@@ -79,5 +79,6 @@ fn version() -> i32 {
     println!("Versão: 1.2");
     println!("Data de lançamento: 15/02/2025");
     println!("Escrito por Matheus de Faria.");
+    println!("Atualização: 20/02/2025");
     0
 }
