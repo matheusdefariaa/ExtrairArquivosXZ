@@ -66,8 +66,8 @@
 
 >**Arquivo de teste:** arq.zip contém dois arquivos de texto vazios chamados de teste_1 e teste_2
 
-### Imagens da interface:
+<!-- ### Imagens da interface:
 
-<!-- <img src="assets/img/menu.png">
+<img src="assets/img/menu.png">
 <img src="assets/img/listar.png">
 <img src="assets/img/extrair.png"> -->
